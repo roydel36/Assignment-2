@@ -53,7 +53,11 @@ function addC() {
 
 // Remove a row
 function removeR() {
-    alert("Clicked Remove Row"); // Replace this line with your code.
+    //grab the grid
+    let grid = document.getElementById('grid');
+    //-1 is the specific index used to delete the last row, accounts for all cells
+   grid.deleteRow(-1);
+   numRows--;
 }
 
 // Remove a column
