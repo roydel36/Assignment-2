@@ -5,7 +5,27 @@ let colorSelected;
 
 // Add a row
 function addR() {
-    alert("Clicked Add Row"); // Replace this line with your code.
+    //grab id to work with
+    let grid_element = document.getElementById('grid');
+    console.log(grid_element);
+    //case where we just started and the only roll so the only cell
+
+    if(numRows == 0) {
+        let first_row = grid_element.insertRow();
+        let first_cell = first_row.insertCell(0);
+        console.log("Added first row and cell");
+    }
+    else{
+        // For each new row, insert cells
+        let new_row = grid_element.insertRow();
+        //can only work in correspondence with numCols, so need to implement that first too
+        for (let i = 0; i < numCols; i++) {
+            let other_cell = new_row.insertCell(i);
+            console.log("Added cell in column " + i + " of a new row");
+            // You might want to add content or other modifications to the cell here
+        }
+    }
+    numRows++;
 }
 
 // Add a column
