@@ -62,7 +62,13 @@ function removeR() {
 
 // Remove a column
 function removeC() {
-    alert("Clicked Remove Col"); // Replace this line with your code.
+    let grid = document.getElementById('grid');
+    //need to access every last child of every row
+    for(let i=0;i < numRows; i++){
+        grid.rows[i].deleteCell(-1);       
+    }
+    //decrement column counter
+    numCols--;
 }
 
 // Set global variable for selected color
