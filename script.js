@@ -9,7 +9,6 @@ function addR() {
     let grid_element = document.getElementById('grid');
     console.log(grid_element);
     //case where we just started and the only roll so the only cell
-
     if(numRows == 0) {
         let first_row = grid_element.insertRow();
         let first_cell = first_row.insertCell(0);
@@ -18,11 +17,9 @@ function addR() {
     else{
         // For each new row, insert cells
         let new_row = grid_element.insertRow();
-        //can only work in correspondence with numCols, so need to implement that first too
+        //can only work in correspondence with numCols, so need to implement that
         for (let i = 0; i < numCols; i++) {
             let other_cell = new_row.insertCell(i);
-            console.log("Added cell in column " + i + " of a new row");
-            // You might want to add content or other modifications to the cell here
         }
     }
     numRows++;
@@ -30,7 +27,24 @@ function addR() {
 
 // Add a column
 function addC() {
-    alert("Clicked Add Col"); // Replace this line with your code.
+    //grab table and get amount of rows to add correct number of cells in each addition of column
+    let grid_element = document.getElementById('grid');
+    let rows = grid_element.rows;
+    //if no rows present, will be first column and row
+    if (rows.length === 0) {
+        let new_row = grid_element.insertRow();
+        let new_cell = new_row.insertCell(0); 
+    }
+    else{
+    // Add a cell to each existing row
+    for (let i = 0; i < rows.length; i++) {
+        //will insert the cell at the end
+        let new_cell = rows[i].insertCell(-1); 
+    }
+}
+    //need to update rows 
+    numRows++;
+    numCols++;
 }
 
 // Remove a row
