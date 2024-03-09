@@ -17,6 +17,10 @@ function addR() {
     else{
         // For each new row, insert cells
         let new_row = grid_element.insertRow();
+        //when adding the cells that makeup the row, need to add the proper amount which is indicative
+        //of # of cols which we get from that first row
+        let colsInFirstRow = grid_element.rows[0] ? grid_element.rows[0].cells.length : 0;
+        numCols = colsInFirstRow;
         //can only work in correspondence with numCols, so need to implement that
         for (let i = 0; i < numCols; i++) {
             let other_cell = new_row.insertCell(i);
@@ -42,7 +46,7 @@ function addC() {
         let new_cell = rows[i].insertCell(-1); 
     }
 }
-    //need to update rows 
+    //need to update rows as well
     numRows++;
     numCols++;
 }
