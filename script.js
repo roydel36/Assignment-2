@@ -107,7 +107,14 @@ function fillU(){
 
 // Fill all cells
 function fillAll(){
-    alert("Clicked Fill All"); // Replace this line with your code.
+    if (colorSelected && colorSelected !== 'SELECT') {
+        let cells = document.querySelectorAll('#grid td');
+        cells.forEach(cell => {
+            cell.style.backgroundColor = colorSelected;
+        });
+    } else {
+        alert('Please select a color first to fill all the cells in the grid.');
+    }
 }
 
 // Clear all cells
