@@ -92,7 +92,17 @@ grid_element.addEventListener('click', singleFill);
 
 // Fill all uncolored cells
 function fillU(){
-    alert("Clicked Fill All Uncolored"); // Replace this line with your code.
+    if (colorSelected && colorSelected !== 'SELECT') {
+        let cells = document.querySelectorAll('#grid td');
+
+        cells.forEach(cell => {
+            if (!cell.style.backgroundColor || cell.style.backgroundColor === 'transparent') {
+                cell.style.backgroundColor = colorSelected;
+            }
+        });
+    } else {
+        alert('Please select a color first to fill all the uncolored cells.');
+    }
 }
 
 // Fill all cells
