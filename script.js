@@ -77,9 +77,32 @@ function selectColor(){
     console.log(colorSelected);
 }
 
+// Helper function to color a single cell by clicking on it
+function singleFill(event) {
+    if (colorSelected && colorSelected !== 'SELECT') {
+        let cell = event.target;
+        cell.style.backgroundColor = colorSelected;
+    } else {
+        alert('Please select a color first to fill the cell.');
+    }
+}
+let grid_element = document.getElementById('grid');
+grid_element.addEventListener('click', singleFill);
+
+
 // Fill all uncolored cells
 function fillU(){
-    alert("Clicked Fill All Uncolored"); // Replace this line with your code.
+    if (colorSelected && colorSelected !== 'SELECT') {
+        let cells = document.querySelectorAll('#grid td');
+
+        cells.forEach(cell => {
+            if (!cell.style.backgroundColor || cell.style.backgroundColor === 'transparent') {
+                cell.style.backgroundColor = colorSelected;
+            }
+        });
+    } else {
+        alert('Please select a color first to fill all the uncolored cells.');
+    }
 }
 
 // Fill all cells
