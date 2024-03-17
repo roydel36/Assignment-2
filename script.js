@@ -90,7 +90,7 @@ let grid_element = document.getElementById('grid');
 grid_element.addEventListener('click', singleFill);
 
 
-// Fill all uncolored cells
+// Fill all uncolored cells that are still white
 function fillU(){
     if (colorSelected && colorSelected !== 'SELECT') {
         let cells = document.querySelectorAll('#grid td');
