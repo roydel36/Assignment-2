@@ -119,5 +119,12 @@ function fillAll(){
 
 // Clear all cells
 function clearAll(){
-    alert("Clicked Clear All"); // Replace this line with your code.
+     let cells = document.querySelectorAll('#grid td');
+
+     cells.forEach(cell => {
+         cell.style.backgroundColor = 'white';
+     });
+ 
+     document.getElementById('selectedColorId').value = 'SELECT';
+     colorSelected = ''; 
 }
