@@ -90,17 +90,41 @@ let grid_element = document.getElementById('grid');
 grid_element.addEventListener('click', singleFill);
 
 
-// Fill all uncolored cells
+// Fill all uncolored cells that are still white
 function fillU(){
-    alert("Clicked Fill All Uncolored"); // Replace this line with your code.
+    if (colorSelected && colorSelected !== 'SELECT') {
+        let cells = document.querySelectorAll('#grid td');
+
+        cells.forEach(cell => {
+            if (!cell.style.backgroundColor || cell.style.backgroundColor === 'transparent') {
+                cell.style.backgroundColor = colorSelected;
+            }
+        });
+    } else {
+        alert('Please select a color first to fill all the uncolored cells.');
+    }
 }
 
 // Fill all cells
 function fillAll(){
-    alert("Clicked Fill All"); // Replace this line with your code.
+    if (colorSelected && colorSelected !== 'SELECT') {
+        let cells = document.querySelectorAll('#grid td');
+        cells.forEach(cell => {
+            cell.style.backgroundColor = colorSelected;
+        });
+    } else {
+        alert('Please select a color first to fill all the cells in the grid.');
+    }
 }
 
 // Clear all cells
 function clearAll(){
-    alert("Clicked Clear All"); // Replace this line with your code.
+     let cells = document.querySelectorAll('#grid td');
+
+     cells.forEach(cell => {
+         cell.style.backgroundColor = 'white';
+     });
+ 
+     document.getElementById('selectedColorId').value = 'SELECT';
+     colorSelected = ''; 
 }

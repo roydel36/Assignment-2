@@ -1,3 +1,5 @@
+Jessica Flores and Roy Delgado
+
 # grid-maker-starter-code
 This repository is the starter code for Assignment 3 - Grid Maker.
 
