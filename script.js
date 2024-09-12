@@ -105,7 +105,7 @@ function fillU(){
     }
 }
 
-// Fill all cells
+// Fill all cells regardless of color
 function fillAll(){
     if (colorSelected && colorSelected !== 'SELECT') {
         let cells = document.querySelectorAll('#grid td');
